@@ -1,12 +1,12 @@
 import {FETCH_WEATHER} from '../actions/index';
 
-export default function(state = null, action){
+export default function(state = [], action){
   console.log('Action received at reducer_weather', action);
 
   switch (action.type) {
     case FETCH_WEATHER:
-
-      return [action.payload.data];
+      // return state.concat([action.payload.data]);
+      return [action.payload.data, ...state]; //return [city, city, city] NOT [city, [city] ]
     default:
       return state;
   }
